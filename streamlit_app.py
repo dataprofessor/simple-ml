@@ -15,15 +15,23 @@ st.title('🎈 Simple ML App')
 # Load dataset
 df = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/data/master/iris.csv')
 
+
+# Input widgets
+st.sidebar.subheader('Input parameters')
+st_test_size = st.sidebar.slider('test_size', (0.1, 0.9), 0.2)
+st_max_features = st.sidebar.slider('max_features', (1, 4), 4)
+st_n_estimators = st.sidebar.slider('n_estimators', (100, 1000), 200)
+
+
 # Separate to X and y
 X = df.drop('Species', axis=1)
 y = df.Species
 
 # Data splitting
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=st_test_size, random_state=42)
 
 # Model building
-rf = RandomForestClassifier(max_depth=2, max_features=4, n_estimators=100, random_state=0)
+rf = RandomForestClassifier(max_depth=2, max_features=st_max_features, n_estimators=st_n_estimators, random_state=42)
 rf.fit(X_train, y_train)
 
 # Apply model to make predictions
