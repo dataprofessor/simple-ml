@@ -38,7 +38,7 @@ test_accuracy = accuracy_score(y_test, y_test_pred)
 st.subheader('Data overview')
 st.write(f'Number of samples (rows): `{df.shape[0]}`')
 st.write(f'Number of variables (columns): `{df.shape[1]}`')
-st.write(f'Variable names: `{df.columns}`')
+st.write(f'Variable names: `{list(df.columns)}`')
 
 # Print model performance
 st.subheader('Model performance')
