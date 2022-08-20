@@ -18,9 +18,9 @@ df = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/data/master/ir
 
 # Input widgets
 st.sidebar.subheader('Input parameters')
-st_test_size = st.sidebar.slider('Size of test set (`test_size`)', 0.1, 0.9, 0.2)
-st_max_features = st.sidebar.slider('Maximum number of features (`max_features`)', 1, 4, 4)
-st_n_estimators = st.sidebar.slider('Number of estimators (`n_estimators`)', 100, 1000, 200)
+st_test_size = st.sidebar.slider('Size of test set (test_size)', 0.1, 0.9, 0.2)
+st_max_features = st.sidebar.slider('Maximum number of features (max_features)', 1, 4, 4)
+st_n_estimators = st.sidebar.slider('Number of estimators (n_estimators)', 100, 1000, 200)
 
 
 # Separate to X and y
