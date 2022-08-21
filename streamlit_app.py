@@ -48,6 +48,10 @@ st.write(f'Number of samples (rows): `{df.shape[0]}`')
 st.write(f'Number of variables (columns): `{df.shape[1]}`')
 st.write(f'Variable names: `{list(df.columns)}`')
 
+df_species = df.Species.value_counts()
+st.write(df_species)
+#st.bar_chart
+
 # Print model performance
 st.subheader('Model performance')
 st.write(f'Accuracy (Training set): `{train_accuracy}`')
