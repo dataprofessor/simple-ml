@@ -51,8 +51,7 @@ st.write(f'Variable names: `{list(df.columns)}`')
 data_sepal_length = pd.qcut(df['Sepal.Length'], 3, labels=["low", "medium", "high"]).value_counts()
 data_species = df.Species.value_counts()
 
-st.write(data_sepal_length)
-
+st.bar_chart(data_sepal_length)
 st.bar_chart(data_species)
 
 # Model performance
