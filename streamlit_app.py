@@ -50,6 +50,7 @@ st.write(f'Variable names: `{list(df.columns)}`')
 
 df_species = df.Species.value_counts()
 st.write(df_species)
+st.write(df_species.index)
 #st.bar_chart
 
 # Print model performance
