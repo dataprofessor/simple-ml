@@ -48,7 +48,7 @@ st.write(f'Number of variables (columns): `{df.shape[1]}`')
 st.write(f'Variable names: `{list(df.columns)}`')
 
 # EDA
-data_sepal_length = qcut(df['Sepal.Length'], 4)
+data_sepal_length = pd.qcut(df['Sepal.Length'], 4)
 data_species = df.Species.value_counts()
 
 st.write(data_sepal_length)
