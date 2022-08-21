@@ -48,11 +48,14 @@ st.write(f'Number of variables (columns): `{df.shape[1]}`')
 st.write(f'Variable names: `{list(df.columns)}`')
 
 # EDA
+col1, col2 =  st.columns(2)
 data_sepal_length = pd.qcut(df['Sepal.Length'], 3, labels=["low", "medium", "high"]).value_counts()
 data_species = df.Species.value_counts()
 
-st.bar_chart(data_sepal_length)
-st.bar_chart(data_species)
+with col1:
+  st.bar_chart(data_sepal_length)
+with col2:
+  st.bar_chart(data_species)
 
 # Model performance
 st.subheader('Model performance')
