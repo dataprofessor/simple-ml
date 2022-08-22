@@ -55,7 +55,6 @@ data_sepal_length = pd.qcut(df['Sepal.Length'], 3, labels=["low", "medium", "hig
 data_sepal_width = pd.qcut(df['Sepal.Width'], 3, labels=["low", "medium", "high"]).value_counts()
 data_petal_length = pd.qcut(df['Petal.Length'], 3, labels=["low", "medium", "high"]).value_counts()
 data_petal_width = pd.qcut(df['Petal.Width'], 3, labels=["low", "medium", "high"]).value_counts()
-
 data_species = df.Species.value_counts()
 
 eda_col1, eda_col2, eda_col3, eda_col4, eda_col5 =  st.columns(5)
