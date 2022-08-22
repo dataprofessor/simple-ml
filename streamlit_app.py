@@ -9,6 +9,13 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
+# Page configuration
+st.set_page_config(
+     page_title='Simple ML App',
+     page_icon='🎈',
+     layout='wide',
+     initial_sidebar_state='expanded')
+
 # Title of the app
 st.title('🎈 Simple ML App')
 
