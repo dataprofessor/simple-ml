@@ -1,4 +1,4 @@
-# Name of Streamlit App
+# simple-ml app
 
 Description of the app ...
 
