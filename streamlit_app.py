@@ -41,8 +41,8 @@ with data_col1:
   st.metric('Number of samples (rows)', df.shape[0], '')
 with data_col2:
   st.metric('Number of variables (columns)', df.shape[1], '')
-
-st.write(f'Variable names: `{list(df.columns)}`')
+with data_col3:
+  st.write(f'Variable names:\n `{list(df.columns)}`')
 
 # EDA
 st.subheader('EDA')
