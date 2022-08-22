@@ -36,7 +36,7 @@ y = df.Species
 # Data overview
 st.subheader('Data overview')
 
-data_col1, data_col2 = st.columns(2)
+data_col1, data_col2, data_col3, data_col4 = st.columns(4)
 with data_col1:
   st.metric('Number of samples (rows)', df.shape[0], '')
 with data_col2:
