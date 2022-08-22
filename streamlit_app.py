@@ -43,7 +43,7 @@ with data_col2:
   st.metric('Number of variables (columns)', df.shape[1], '')
 with data_col3:
   st.write('Variable names:')
-  st.write('`{list(df.columns)}`')
+  st.write(f'`{list(df.columns)}`')
 
 # EDA
 st.subheader('EDA')
