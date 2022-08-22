@@ -60,7 +60,7 @@ st.write(f'Number of variables (columns): `{df.shape[1]}`')
 st.write(f'Variable names: `{list(df.columns)}`')
 
 # EDA
-col1, col2, col3 =  st.columns(3)
+col1, col2, col3, col4, col5 =  st.columns(5)
 data_sepal_length = pd.qcut(df['Sepal.Length'], 3, labels=["low", "medium", "high"]).value_counts()
 data_sepal_width = pd.qcut(df['Sepal.Width'], 3, labels=["low", "medium", "high"]).value_counts()
 data_petal_length = pd.qcut(df['Petal.Length'], 3, labels=["low", "medium", "high"]).value_counts()
@@ -70,11 +70,13 @@ data_species = df.Species.value_counts()
 
 with col1:
   st.bar_chart(data_sepal_length)
-  st.bar_chart(data_petal_length)
 with col2:
   st.bar_chart(data_sepal_width)
-  st.bar_chart(data_petal_width)
 with col3:
+  st.bar_chart(data_petal_length)
+with col4:
+  st.bar_chart(data_petal_width)
+with col5:
   st.bar_chart(data_species)
 
 # Model performance
