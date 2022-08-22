@@ -34,25 +34,6 @@ st_n_estimators = st.sidebar.slider('Number of estimators (n_estimators)', 100, 
 X = df.drop('Species', axis=1)
 y = df.Species
 
-# Data splitting
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=st_test_size, random_state=42)
-
-# Model building
-rf = RandomForestClassifier(max_depth=2, max_features=st_max_features, n_estimators=st_n_estimators, random_state=42)
-rf.fit(X_train, y_train)
-
-# Apply model to make predictions
-y_train_pred = rf.predict(X_train)
-y_test_pred = rf.predict(X_test)
-
-# Model performance
-train_accuracy = accuracy_score(y_train, y_train_pred)
-test_accuracy = accuracy_score(y_test, y_test_pred)
-
-# Cross-validation
-rf = RandomForestClassifier(max_depth=2, max_features=st_max_features, n_estimators=st_n_estimators, random_state=42)
-cv_scores = cross_val_score(rf, X_train, y_train, cv=5).mean()
-
 # Data overview
 st.subheader('Data overview')
 st.write(f'Number of samples (rows): `{df.shape[0]}`')
@@ -83,6 +64,25 @@ with eda_col4:
   st.bar_chart(data_petal_width)
 with eda_col5:
   st.bar_chart(data_species)
+
+# Data splitting
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=st_test_size, random_state=42)
+
+# Model building
+rf = RandomForestClassifier(max_depth=2, max_features=st_max_features, n_estimators=st_n_estimators, random_state=42)
+rf.fit(X_train, y_train)
+
+# Apply model to make predictions
+y_train_pred = rf.predict(X_train)
+y_test_pred = rf.predict(X_test)
+
+# Model performance
+train_accuracy = accuracy_score(y_train, y_train_pred)
+test_accuracy = accuracy_score(y_test, y_test_pred)
+
+# Cross-validation
+rf = RandomForestClassifier(max_depth=2, max_features=st_max_features, n_estimators=st_n_estimators, random_state=42)
+cv_scores = cross_val_score(rf, X_train, y_train, cv=5).mean()
 
 # Model performance
 st.subheader('Model performance')
