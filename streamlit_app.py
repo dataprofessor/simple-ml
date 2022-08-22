@@ -8,6 +8,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
+from sklearn.model_selection import cross_val_score
 
 # Page configuration
 st.set_page_config(
@@ -48,6 +49,10 @@ y_test_pred = rf.predict(X_test)
 train_accuracy = accuracy_score(y_train, y_train_pred)
 test_accuracy = accuracy_score(y_test, y_test_pred)
 
+# Cross-validation
+rf = RandomForestClassifier(max_depth=2, max_features=st_max_features, n_estimators=st_n_estimators, random_state=42)
+cv_scores = cross_val_score(rf, X_train, y_train, cv=5)
+
 # Data overview
 st.subheader('Data overview')
 st.write(f'Number of samples (rows): `{df.shape[0]}`')
@@ -76,3 +81,4 @@ with col3:
 st.subheader('Model performance')
 st.write(f'Accuracy (Training set): `{train_accuracy}`')
 st.write(f'Accuracy (Test set): `{test_accuracy}`')
+st.write(f'Accuracy (5-fold cross-validation): `{cv_scores}`')
