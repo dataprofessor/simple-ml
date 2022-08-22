@@ -60,7 +60,7 @@ st.write(f'Number of variables (columns): `{df.shape[1]}`')
 st.write(f'Variable names: `{list(df.columns)}`')
 
 # EDA
-col1, col2, col3, col4, col5 =  st.columns(5)
+eda_col1, eda_col2, eda_col3, eda_col4, eda_col5 =  st.columns(5)
 data_sepal_length = pd.qcut(df['Sepal.Length'], 3, labels=["low", "medium", "high"]).value_counts()
 data_sepal_width = pd.qcut(df['Sepal.Width'], 3, labels=["low", "medium", "high"]).value_counts()
 data_petal_length = pd.qcut(df['Petal.Length'], 3, labels=["low", "medium", "high"]).value_counts()
@@ -68,19 +68,23 @@ data_petal_width = pd.qcut(df['Petal.Width'], 3, labels=["low", "medium", "high"
 
 data_species = df.Species.value_counts()
 
-with col1:
+with eda_col1:
   st.bar_chart(data_sepal_length)
-with col2:
+with eda_col2:
   st.bar_chart(data_sepal_width)
-with col3:
+with eda_col3:
   st.bar_chart(data_petal_length)
-with col4:
+with eda_col4:
   st.bar_chart(data_petal_width)
-with col5:
+with eda_col5:
   st.bar_chart(data_species)
 
 # Model performance
 st.subheader('Model performance')
+
+model_col1, model_col2, model_col3 = st.columns(3)
+with model_col1:
+  st.metric('Training set', train_accuracy, '')
 st.write(f'Accuracy (Training set): `{train_accuracy}`')
 st.write(f'Accuracy (Test set): `{test_accuracy}`')
 st.write(f'Accuracy (5-fold cross-validation): `{cv_scores}`')
