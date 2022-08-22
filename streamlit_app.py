@@ -1,4 +1,4 @@
-# Simple ML app
+# Simple ML App
 # By Chanin Nantasenamat (Data Professor)
 # https://youtube.com/dataprofessor
 
