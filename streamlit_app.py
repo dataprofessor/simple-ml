@@ -84,7 +84,8 @@ st.subheader('Model performance')
 
 model_col1, model_col2, model_col3 = st.columns(3)
 with model_col1:
-  st.metric('Training set', train_accuracy, '')
-st.write(f'Accuracy (Training set): `{train_accuracy}`')
-st.write(f'Accuracy (Test set): `{test_accuracy}`')
-st.write(f'Accuracy (5-fold cross-validation): `{cv_scores}`')
+  st.metric('Training set', round(train_accuracy,3), '')
+with model_col2:
+  st.metric('Test set', round(test_accuracy,3), '')
+with model_col3:
+  st.metric('5-fold CV set', cv_scores)
