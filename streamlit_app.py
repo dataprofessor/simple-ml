@@ -23,7 +23,6 @@ st.title('🎈 Simple ML App')
 # Load dataset
 df = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/data/master/iris.csv')
 
-
 # Input widgets
 st.sidebar.subheader('Model parameters')
 st_test_size = st.sidebar.slider('Size of test set (test_size)', 0.1, 0.9, 0.2)
@@ -36,8 +35,13 @@ y = df.Species
 
 # Data overview
 st.subheader('Data overview')
-st.write(f'Number of samples (rows): `{df.shape[0]}`')
-st.write(f'Number of variables (columns): `{df.shape[1]}`')
+
+data_col1, data_col2 = st.columns(2)
+with data_col1:
+  st.metric('Number of samples (rows)', df.shape[0], '')
+with data_col2:
+  st.metric('Number of variables (columns)', df.shape[1], '')
+
 st.write(f'Variable names: `{list(df.columns)}`')
 
 # EDA
