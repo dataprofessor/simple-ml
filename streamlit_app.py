@@ -51,7 +51,7 @@ test_accuracy = accuracy_score(y_test, y_test_pred)
 
 # Cross-validation
 rf = RandomForestClassifier(max_depth=2, max_features=st_max_features, n_estimators=st_n_estimators, random_state=42)
-cv_scores = cross_val_score(rf, X_train, y_train, cv=5)
+cv_scores = cross_val_score(rf, X_train, y_train, cv=5).mean()
 
 # Data overview
 st.subheader('Data overview')
