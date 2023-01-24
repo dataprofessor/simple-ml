@@ -1,4 +1,4 @@
-# simple-ml app
+# 🤖 simple-ml app
 
 This is a simple machine learning app.
 
